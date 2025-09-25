@@ -14,7 +14,7 @@ import Copyright from './components/Copyright';
 
 const App = () => {
   return (
-    <div className='max-w-[1920px] mx-auto overflow-hidden bg-white'>
+    <div className="max-w-[1920px] mx-auto overflow-hidden bg-white">
       <Header />
       <Hero />
       <About />
@@ -25,7 +25,7 @@ const App = () => {
       <Contact />
       <Footer />
       <Copyright />
-      {/* <div className='h-[4000px]'></div> */}
+      <div className="h-[4000px]"></div>
     </div>
   );
 };
