@@ -120,7 +120,7 @@ export const galleryData = {
 
 export const interviewData = {
   title:
-    '“Consider what you desire. Your tattoo artist will never tell you what tattoo to have.”',
+    '“Consider what you desire. Your tattoo artist will help you figure out what tattoo to have.”',
   btnText: 'Watch it now',
   btnIcon: <FaPlay />,
 };
