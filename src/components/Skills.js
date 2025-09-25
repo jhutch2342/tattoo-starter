@@ -105,7 +105,7 @@ const Skills = () => {
             />
             {/* text */}
             <div className="uppercase font-light tracking-[1.2px] text-center">
-              Safely Peircing
+              Safely Piercing
             </div>
           </div>
           {/* circular item */}
