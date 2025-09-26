@@ -8,7 +8,7 @@ import Socials from './Socials';
 // import icons
 import { TiThMenuOutline } from 'react-icons/ti';
 
-const Header = ({ onGalleryClick, onHomeClick, isGalleryPage }) => {
+const Header = ({ onHomeClick, isGalleryPage }) => {
   //destructure header data
   const { logo } = headerData;
   // header state
@@ -43,10 +43,7 @@ const Header = ({ onGalleryClick, onHomeClick, isGalleryPage }) => {
         </button>
         {/* nav - initaily hidden - show on desktop */}
         <div className={'hidden xl:flex'}>
-          <Nav
-            onGalleryClick={onGalleryClick}
-            onHomeClick={isGalleryPage ? onHomeClick : null}
-          />
+          <Nav onHomeClick={isGalleryPage ? onHomeClick : null} />
         </div>
         {/* nav menu btn - showing by default = hidden on desktop mode */}
         <div
@@ -59,10 +56,7 @@ const Header = ({ onGalleryClick, onHomeClick, isGalleryPage }) => {
         <div
           className={`${navMobile ? 'max-h-full' : 'max-h-0'} ${isActive ? 'top-[100px] lg:top-[110px]' : 'top-[120px] lg:top-[150px]'} fixed bg-white w-full h-full left-0 -z-10 transition-all duration-300`}
         >
-          <NavMobile
-            onGalleryClick={onGalleryClick}
-            onHomeClick={isGalleryPage ? onHomeClick : null}
-          />
+          <NavMobile onHomeClick={isGalleryPage ? onHomeClick : null} />
         </div>
         {/* social icons - initially hidden - show on desktop */}
         <div className="hidden xl:flex">

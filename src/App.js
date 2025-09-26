@@ -28,11 +28,7 @@ const App = () => {
   if (showGalleryPage) {
     return (
       <div className="max-w-[1920px] mx-auto overflow-hidden bg-white">
-        <Header
-          onGalleryClick={handleShowGallery}
-          onHomeClick={handleBackToHome}
-          isGalleryPage={true}
-        />
+        <Header onHomeClick={handleBackToHome} isGalleryPage={true} />
         <GalleryPage onBack={handleBackToHome} />
         <Footer />
         <Copyright />
@@ -43,11 +39,7 @@ const App = () => {
   // Otherwise show main site
   return (
     <div className="max-w-[1920px] mx-auto overflow-hidden bg-white">
-      <Header
-        onGalleryClick={handleShowGallery}
-        onHomeClick={null}
-        isGalleryPage={false}
-      />
+      <Header onHomeClick={null} isGalleryPage={false} />
       <section id="home">
         <Hero />
       </section>

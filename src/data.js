@@ -29,7 +29,7 @@ export const navData = {
   items: [
     { href: '#home', name: 'Home' },
     { href: '#about', name: 'About' },
-    { href: '/gallery', name: 'Gallery' }, // This will trigger the gallery page
+    { href: '#gallery', name: 'Gallery' }, // Changed back to #gallery for scrolling
     { href: '#interview', name: 'Interview' },
     { href: '#testimonials', name: 'Articles' },
     { href: '#contact', name: 'Contact' },
