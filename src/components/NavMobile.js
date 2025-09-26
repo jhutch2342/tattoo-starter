@@ -4,18 +4,36 @@ import { navData } from '../data';
 // import components
 import Socials from './Socials';
 
-const NavMobile = () => {
+const NavMobile = ({ onGalleryClick }) => {
   // destructure nav data
   const { items } = navData;
+
+  const handleClick = (href, name) => {
+    if (name === 'Gallery' && onGalleryClick) {
+      onGalleryClick();
+    } else {
+      // For other links, scroll to section
+      if (href.startsWith('#')) {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
   return (
     <nav className="w-full h-full flex flex-col justify-evenly overflow-hidden ">
       <ul className="flex flex-col justify-center items-center gap-y-6 py-6 mb-8">
         {items.map((item, index) => {
           return (
             <li key={index}>
-              <a className="text-2xl font-primary uppercase" href={item.href}>
+              <button
+                className="text-2xl font-primary uppercase"
+                onClick={() => handleClick(item.href, item.name)}
+              >
                 {item.name}
-              </a>
+              </button>
             </li>
           );
         })}

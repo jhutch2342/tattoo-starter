@@ -18,11 +18,15 @@ const slides = galleryData.images.map(({ original, width, height }) => ({
   height,
 }));
 
-const GallerySection = () => {
+const GallerySection = ({ onViewAll }) => {
   // index state
   const [index, setIndex] = useState(-1);
   // destructure gallery data
   const { title, btnText, btnIcon, images } = galleryData;
+
+  // Show only first 4 images in the home section
+  const previewImages = images.slice(0, 4);
+
   return (
     <section className="bg-[#f9f9f9] section relative mt-[40px] lg:mt-0">
       <div className="container mx-auto">
@@ -35,7 +39,7 @@ const GallerySection = () => {
         >
           {title}
         </motion.h2>
-        {/* photo album */}
+        {/* photo album preview */}
         <motion.div
           variants={fadeIn('up')}
           initial="hidden"
@@ -46,10 +50,10 @@ const GallerySection = () => {
           <PhotoAlbum
             onClick={(event, photo, index) => setIndex(index)}
             layout="rows"
-            photos={images}
+            photos={previewImages}
           />
           <Lightbox
-            slides={slides}
+            slides={slides.slice(0, 4)}
             styles={{ container: { backgroundColor: 'rgba(0,0,0,.9)' } }}
             open={index >= 0}
             index={index}
@@ -65,7 +69,7 @@ const GallerySection = () => {
         viewport={{ once: false, amount: 0.2 }}
         className="flex justify-center"
       >
-        <button className="btn btn-lg btn-dark">
+        <button onClick={onViewAll} className="btn btn-lg btn-dark">
           {btnText} <div className="text-xl">{btnIcon}</div>
         </button>
       </motion.div>

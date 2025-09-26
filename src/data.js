@@ -29,9 +29,9 @@ export const navData = {
   items: [
     { href: '#home', name: 'Home' },
     { href: '#about', name: 'About' },
-    { href: '#gallery', name: 'Gallery' },
-    { href: '#testimonials', name: 'Testimonials' }, // Assuming Articles refers to testimonials
+    { href: '/gallery', name: 'Gallery' }, // This will trigger the gallery page
     { href: '#interview', name: 'Interview' },
+    { href: '#testimonials', name: 'Articles' },
     { href: '#contact', name: 'Contact' },
   ],
 };
