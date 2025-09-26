@@ -8,7 +8,7 @@ import Socials from './Socials';
 // import icons
 import { TiThMenuOutline } from 'react-icons/ti';
 
-const Header = ({ onHomeClick, isGalleryPage }) => {
+const Header = ({ onCalculatorClick }) => {
   //destructure header data
   const { logo } = headerData;
   // header state
@@ -22,29 +22,21 @@ const Header = ({ onHomeClick, isGalleryPage }) => {
     });
   });
 
-  const handleLogoClick = (e) => {
-    e.preventDefault();
-    if (isGalleryPage && onHomeClick) {
-      onHomeClick();
-    } else {
-      // Scroll to top if already on home page
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
   return (
     <header
-      className={`${isActive ? 'h-[100px] lg:h-[110px] shadow-lg' : 'h-[120px] lg:h-150px]'} fixed bg-white left-0 right-0 z-10 max-w-[1920px] w-full mx-auto transition-all duration-300`}
+      className={`${isActive ? 'h-[100px] lg:h-[110px] shadow-lg' : 'h-[120px] lg:h-[150px]'} fixed bg-white left-0 right-0 z-10 max-w-[1920px] w-full mx-auto transition-all duration-300`}
     >
       <div className="flex justify-between items-center h-full pl-[50px] pr-[60px]">
         {/* logo */}
-        <button onClick={handleLogoClick}>
+        <a href="/">
           <img className={'w-[188px] h-[90px]'} src={logo} alt="" />
-        </button>
-        {/* nav - initaily hidden - show on desktop */}
+        </a>
+
+        {/* nav - initially hidden - show on desktop */}
         <div className={'hidden xl:flex'}>
-          <Nav onHomeClick={isGalleryPage ? onHomeClick : null} />
+          <Nav onCalculatorClick={onCalculatorClick} />
         </div>
+
         {/* nav menu btn - showing by default = hidden on desktop mode */}
         <div
           onClick={() => setNavMobile(!navMobile)}
@@ -52,12 +44,17 @@ const Header = ({ onHomeClick, isGalleryPage }) => {
         >
           <TiThMenuOutline className="text-3xl" />
         </div>
+
         {/* nav mobile - showing by default - hidden on desktop */}
         <div
           className={`${navMobile ? 'max-h-full' : 'max-h-0'} ${isActive ? 'top-[100px] lg:top-[110px]' : 'top-[120px] lg:top-[150px]'} fixed bg-white w-full h-full left-0 -z-10 transition-all duration-300`}
         >
-          <NavMobile onHomeClick={isGalleryPage ? onHomeClick : null} />
+          <NavMobile
+            onCalculatorClick={onCalculatorClick}
+            setNavMobile={setNavMobile}
+          />
         </div>
+
         {/* social icons - initially hidden - show on desktop */}
         <div className="hidden xl:flex">
           <Socials />

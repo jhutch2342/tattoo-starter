@@ -2,33 +2,9 @@ import React from 'react';
 // import nav data
 import { navData } from '../data';
 
-const Nav = ({ onHomeClick }) => {
+const Nav = ({ onCalculatorClick }) => {
   // destructure nav data
   const { items } = navData;
-
-  const handleClick = (href, name) => {
-    if (onHomeClick) {
-      // If we're on gallery page, go back to home first, then scroll
-      onHomeClick();
-      // Wait a bit for page transition, then scroll
-      setTimeout(() => {
-        if (href.startsWith('#')) {
-          const element = document.querySelector(href);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      }, 100);
-    } else {
-      // For all links, scroll to section (when on home page)
-      if (href.startsWith('#')) {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
-  };
 
   return (
     <nav>
@@ -36,15 +12,24 @@ const Nav = ({ onHomeClick }) => {
         {items.map((item, index) => {
           return (
             <li key={index}>
-              <button
+              <a
                 className="link hover:border-b-2 hover:border-dark transition duration-300"
-                onClick={() => handleClick(item.href, item.name)}
+                href={item.href}
               >
                 {item.name}
-              </button>
+              </a>
             </li>
           );
         })}
+        {/* Calculator link */}
+        <li>
+          <button
+            onClick={onCalculatorClick}
+            className="link hover:border-b-2 hover:border-dark transition duration-300 bg-transparent border-none cursor-pointer"
+          >
+            Calculator
+          </button>
+        </li>
       </ul>
     </nav>
   );

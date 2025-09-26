@@ -4,32 +4,13 @@ import { navData } from '../data';
 // import components
 import Socials from './Socials';
 
-const NavMobile = ({ onHomeClick }) => {
+const NavMobile = ({ onCalculatorClick, setNavMobile }) => {
   // destructure nav data
   const { items } = navData;
 
-  const handleClick = (href, name) => {
-    if (onHomeClick) {
-      // If we're on gallery page, go back to home first, then scroll
-      onHomeClick();
-      // Wait a bit for page transition, then scroll
-      setTimeout(() => {
-        if (href.startsWith('#')) {
-          const element = document.querySelector(href);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      }, 100);
-    } else {
-      // For all links, scroll to section (when on home page)
-      if (href.startsWith('#')) {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
+  const handleCalculatorClick = () => {
+    setNavMobile(false); // Close mobile menu
+    onCalculatorClick(); // Navigate to calculator
   };
 
   return (
@@ -38,15 +19,25 @@ const NavMobile = ({ onHomeClick }) => {
         {items.map((item, index) => {
           return (
             <li key={index}>
-              <button
+              <a
                 className="text-2xl font-primary uppercase"
-                onClick={() => handleClick(item.href, item.name)}
+                href={item.href}
+                onClick={() => setNavMobile(false)}
               >
                 {item.name}
-              </button>
+              </a>
             </li>
           );
         })}
+        {/* Calculator link */}
+        <li>
+          <button
+            onClick={handleCalculatorClick}
+            className="text-2xl font-primary uppercase bg-transparent border-none cursor-pointer"
+          >
+            Calculator
+          </button>
+        </li>
       </ul>
       <div className="text-2xl">
         <Socials />
