@@ -27,12 +27,12 @@ export const headerData = {
 
 export const navData = {
   items: [
-    { href: '/', name: 'Home' },
-    { href: '/', name: 'About' },
-    { href: '/', name: 'Gallery' },
-    { href: '/', name: 'Interview' },
-    { href: '/', name: 'Articles' },
-    { href: '/', name: 'Contact' },
+    { href: '#home', name: 'Home' },
+    { href: '#about', name: 'About' },
+    { href: '#gallery', name: 'Gallery' },
+    { href: '#testimonials', name: 'Testimonials' }, // Assuming Articles refers to testimonials
+    { href: '#interview', name: 'Interview' },
+    { href: '#contact', name: 'Contact' },
   ],
 };
 

@@ -16,16 +16,27 @@ const App = () => {
   return (
     <div className="max-w-[1920px] mx-auto overflow-hidden bg-white">
       <Header />
-      <Hero />
-      <About />
-      <GallerySection />
-      <Skills />
-      <Testimonial />
-      <Interview />
-      <Contact />
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="gallery">
+        <GallerySection />
+        <Skills />
+      </section>
+      <section id="testimonials">
+        <Testimonial />
+      </section>
+      <section id="interview">
+        <Interview />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
       <Footer />
       <Copyright />
-      {/*<div className="h-[4000px]"></div>*/}
     </div>
   );
 };
